@@ -1,0 +1,19 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+server:
+  port: ${PORT:5000}
+otel:
+  traces:
+    exporter: logging
+  metrics:
+    exporter: none
+  logs:
+    exporter: none
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+      protocol: grpc
+  service:
+    name: otel-gateway-api
